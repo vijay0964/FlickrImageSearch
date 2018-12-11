@@ -8,18 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		34D5908C21BED8980051B466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D5908B21BED8980051B466 /* AppDelegate.swift */; };
-		34D5909121BED8980051B466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D5908F21BED8980051B466 /* Main.storyboard */; };
 		34D5909321BED89A0051B466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D5909221BED89A0051B466 /* Assets.xcassets */; };
-		34D5909621BED89A0051B466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D5909421BED89A0051B466 /* LaunchScreen.storyboard */; };
+		34D590AD21BF8D060051B466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D590A921BF8D060051B466 /* LaunchScreen.storyboard */; };
+		34D590AE21BF8D060051B466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D590AB21BF8D060051B466 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		34D5908821BED8970051B466 /* FlickrImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D5908B21BED8980051B466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		34D5909021BED8980051B466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		34D5909221BED89A0051B466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		34D5909521BED89A0051B466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34D5909721BED89A0051B466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34D590AA21BF8D060051B466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		34D590AC21BF8D060051B466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +96,7 @@
 		34D590A121BEDBCE0051B466 /* Presentation Views */ = {
 			isa = PBXGroup;
 			children = (
+				34D590A821BF8D060051B466 /* Storyboards */,
 				34D590A321BEDBCE0051B466 /* Controllers */,
 				34D590A221BEDBCE0051B466 /* Views & Cells */,
 			);
@@ -112,8 +113,6 @@
 		34D590A321BEDBCE0051B466 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				34D5909421BED89A0051B466 /* LaunchScreen.storyboard */,
-				34D5908F21BED8980051B466 /* Main.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -147,6 +146,15 @@
 			children = (
 			);
 			path = "Data Persister";
+			sourceTree = "<group>";
+		};
+		34D590A821BF8D060051B466 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				34D590A921BF8D060051B466 /* LaunchScreen.storyboard */,
+				34D590AB21BF8D060051B466 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,9 +215,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34D5909621BED89A0051B466 /* LaunchScreen.storyboard in Resources */,
+				34D590AE21BF8D060051B466 /* Main.storyboard in Resources */,
+				34D590AD21BF8D060051B466 /* LaunchScreen.storyboard in Resources */,
 				34D5909321BED89A0051B466 /* Assets.xcassets in Resources */,
-				34D5909121BED8980051B466 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,20 +235,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		34D5908F21BED8980051B466 /* Main.storyboard */ = {
+		34D590A921BF8D060051B466 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				34D5909021BED8980051B466 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		34D5909421BED89A0051B466 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				34D5909521BED89A0051B466 /* Base */,
+				34D590AA21BF8D060051B466 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		34D590AB21BF8D060051B466 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34D590AC21BF8D060051B466 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
