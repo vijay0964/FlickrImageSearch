@@ -42,10 +42,9 @@ class DataService {
 }
 
 extension DataService {
-    func getPhotos(_ text: String, handler: @escaping CompletionHandlerType) -> Void {
-        let urlPath = URL(string: "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(flickrAPIKey)&format=json&nojsoncallback=1&safe_search=0&text=\(text)")
+    func getPhotos(_ text: String, page: Int, handler: @escaping CompletionHandlerType) -> Void {
+        let urlPath = URL(string: "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(flickrAPIKey)&format=json&nojsoncallback=1&safe_search=1&text=\(text)&page=\(page.description)")
         let endPoint = DataServiceEndPoint(method: "GET", url: urlPath!)
         request(PhotoClass.self, endPoint: endPoint, handler: handler)
     }
 }
-

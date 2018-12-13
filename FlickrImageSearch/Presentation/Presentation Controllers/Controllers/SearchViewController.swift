@@ -22,6 +22,7 @@ class SearchViewController: UICollectionViewController {
     }()
     
     var photos = [Photo]()
+    var pageNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +32,15 @@ class SearchViewController: UICollectionViewController {
     }
     
     func resetCollectionView() {
+        pageNumber = 0
         photos.removeAll()
         collectionView.reloadData()
     }
 }
 
 extension SearchViewController {
-    func searchImages(_ query: String) {
-        DataService().getPhotos(query) { (result) in
+    func doSearchImages(_ query: String) {
+        DataService().getPhotos(query, page: pageNumber) { (result) in
             switch result {
             case .success(let object):
                 if let photo = object as? PhotoClass {
@@ -65,16 +67,27 @@ extension SearchViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if indexPath.row > photos.count - 2 {
+            getQueryAndDoSearch()
+        }
+        
         let photo = photos[indexPath.row]
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SearchCell
+        cell.tag = indexPath.row
         if let url = photo.photoURL() {
-            ImageCache.sharedInstance.loadImage(url) { (image) in
-                if image != nil {
-                    cell.imageView.image = image
+            if let image = ImageCache.sharedInstance.getImage(url) {
+                cell.imageView.image = image
+            } else {
+                ImageCache.sharedInstance.loadImage(url) { (image) in
+                    if indexPath.row == cell.tag {
+                        cell.imageView.image = image
+                    }
                 }
             }
         }
+        
         return cell
     }
 }
@@ -98,21 +111,20 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        
+        getQueryAndDoSearch(true)
+    }
+    
+    func getQueryAndDoSearch(_ isNewSearch: Bool = false) {
         guard let query = searchBar.text else {
             return
         }
         
-        resetCollectionView()
-        
-        searchImages(query)
-    }
-}
-
-extension SearchViewController {
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height) {
-            searchImages("kitten")
+        if isNewSearch {
+            resetCollectionView()
         }
+        
+        pageNumber += 1
+        
+        doSearchImages(query)
     }
 }
