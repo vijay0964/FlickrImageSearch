@@ -7,19 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		343F78B421C02EAB0040CC10 /* DataServiceEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343F78B321C02EAB0040CC10 /* DataServiceEndPoint.swift */; };
+		343F78B621C03A810040CC10 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343F78B521C03A810040CC10 /* SearchViewController.swift */; };
 		34D5908C21BED8980051B466 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D5908B21BED8980051B466 /* AppDelegate.swift */; };
 		34D5909321BED89A0051B466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D5909221BED89A0051B466 /* Assets.xcassets */; };
 		34D590AD21BF8D060051B466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D590A921BF8D060051B466 /* LaunchScreen.storyboard */; };
 		34D590AE21BF8D060051B466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D590AB21BF8D060051B466 /* Main.storyboard */; };
+		34DA0E2221C1884A00FBD3F9 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DA0E2121C1884A00FBD3F9 /* ImageCache.swift */; };
+		34E59EFE21C118C500A82213 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E59EFD21C118C500A82213 /* UIColor.swift */; };
+		34E59F0021C1254000A82213 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E59EFF21C1254000A82213 /* SearchCell.swift */; };
+		34E60A5921BFF32D00DC87C5 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E60A5821BFF32D00DC87C5 /* Photos.swift */; };
+		34E60A5B21BFF9F300DC87C5 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E60A5A21BFF9F300DC87C5 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		343F78B321C02EAB0040CC10 /* DataServiceEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceEndPoint.swift; sourceTree = "<group>"; };
+		343F78B521C03A810040CC10 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		34D5908821BED8970051B466 /* FlickrImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D5908B21BED8980051B466 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34D5909221BED89A0051B466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34D5909721BED89A0051B466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34D590AA21BF8D060051B466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34D590AC21BF8D060051B466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		34DA0E2121C1884A00FBD3F9 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		34E59EFD21C118C500A82213 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		34E59EFF21C1254000A82213 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		34E60A5821BFF32D00DC87C5 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		34E60A5A21BFF9F300DC87C5 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +71,7 @@
 				34D5909721BED89A0051B466 /* Info.plist */,
 				34D5909D21BEDBCE0051B466 /* Presentation */,
 				34D590A421BEDBCE0051B466 /* Data Provider */,
+				34E59EFC21C118B600A82213 /* Extentions */,
 			);
 			path = FlickrImageSearch;
 			sourceTree = "<group>";
@@ -82,6 +97,7 @@
 		34D5909F21BEDBCE0051B466 /* Views & Cells */ = {
 			isa = PBXGroup;
 			children = (
+				34E59EFF21C1254000A82213 /* SearchCell.swift */,
 			);
 			path = "Views & Cells";
 			sourceTree = "<group>";
@@ -89,6 +105,7 @@
 		34D590A021BEDBCE0051B466 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				343F78B521C03A810040CC10 /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -130,6 +147,7 @@
 		34D590A521BEDBCE0051B466 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
+				34E60A5821BFF32D00DC87C5 /* Photos.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -137,6 +155,8 @@
 		34D590A621BEDBCE0051B466 /* Data Service */ = {
 			isa = PBXGroup;
 			children = (
+				34E60A5A21BFF9F300DC87C5 /* DataService.swift */,
+				343F78B321C02EAB0040CC10 /* DataServiceEndPoint.swift */,
 			);
 			path = "Data Service";
 			sourceTree = "<group>";
@@ -144,6 +164,7 @@
 		34D590A721BEDBCE0051B466 /* Data Persister */ = {
 			isa = PBXGroup;
 			children = (
+				34DA0E2121C1884A00FBD3F9 /* ImageCache.swift */,
 			);
 			path = "Data Persister";
 			sourceTree = "<group>";
@@ -155,6 +176,14 @@
 				34D590AB21BF8D060051B466 /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		34E59EFC21C118B600A82213 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				34E59EFD21C118C500A82213 /* UIColor.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +257,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				343F78B621C03A810040CC10 /* SearchViewController.swift in Sources */,
+				34E59EFE21C118C500A82213 /* UIColor.swift in Sources */,
+				34DA0E2221C1884A00FBD3F9 /* ImageCache.swift in Sources */,
+				343F78B421C02EAB0040CC10 /* DataServiceEndPoint.swift in Sources */,
+				34E59F0021C1254000A82213 /* SearchCell.swift in Sources */,
+				34E60A5B21BFF9F300DC87C5 /* DataService.swift in Sources */,
+				34E60A5921BFF32D00DC87C5 /* Photos.swift in Sources */,
 				34D5908C21BED8980051B466 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,7 +412,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B5QXWQH5DV;
 				INFOPLIST_FILE = FlickrImageSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -396,7 +432,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B5QXWQH5DV;
 				INFOPLIST_FILE = FlickrImageSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
