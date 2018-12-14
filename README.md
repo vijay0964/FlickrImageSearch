@@ -9,7 +9,7 @@ Search the Flickr images and display on the UICollectionView based on the query 
 
 ## Flickr API Documentation
 
-Photos are fetched from the Flickr API [Flickr API](https://www.flickr.com/services/api/flickr.photos.search.html).
+Photos are fetched from the [Flickr API](https://www.flickr.com/services/api/flickr.photos.search.html).
 
 - **Search Path:**
 
