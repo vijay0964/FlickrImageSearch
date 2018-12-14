@@ -18,6 +18,9 @@ enum Result {
 
 fileprivate let flickrAPIKey = "3e7cc266ae2b0e0d78e279ce8e361736"
 
+
+/// DataService - Used for calls API services
+
 class DataService {
     
     fileprivate var task: URLSessionTask?
@@ -42,9 +45,16 @@ class DataService {
 }
 
 extension DataService {
+    
+    /// Get photos from Flickr API based on the given query
+    ///
+    /// - Parameters:
+    ///   - text: Search query
+    ///   - page: page number for which page of data taken
+    ///   - handler: Completion handler to pass the call back after completing the requested opration
     func getPhotos(_ text: String, page: Int, handler: @escaping CompletionHandlerType) -> Void {
         let urlPath = URL(string: "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(flickrAPIKey)&format=json&nojsoncallback=1&safe_search=1&text=\(text)&page=\(page.description)")
         let endPoint = DataServiceEndPoint(method: "GET", url: urlPath!)
-        request(PhotoClass.self, endPoint: endPoint, handler: handler)
+        request(PhotoNode.self, endPoint: endPoint, handler: handler)
     }
 }

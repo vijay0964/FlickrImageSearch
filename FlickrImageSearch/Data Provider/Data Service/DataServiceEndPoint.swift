@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// DataServiceEndPoint - which holds the end point URL and the HTTP request method.
+
 struct DataServiceEndPoint {
     var method: String
     var url: URL

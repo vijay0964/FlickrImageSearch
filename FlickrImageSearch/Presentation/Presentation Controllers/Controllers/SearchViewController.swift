@@ -28,9 +28,11 @@ class SearchViewController: UICollectionViewController {
         super.viewDidLoad()
 
         navigationItem.titleView = searchBar
-        navigationController?.navigationBar.barTintColor = .black // UIColor(hex: 0x1F2024)
+        navigationController?.navigationBar.barTintColor = UIColor(hex: 0x1F2024)
     }
     
+    
+    /// Reset the collection view and datas when new search happened.
     func resetCollectionView() {
         pageNumber = 0
         photos.removeAll()
@@ -39,11 +41,15 @@ class SearchViewController: UICollectionViewController {
 }
 
 extension SearchViewController {
+    
+    /// Do search when query passed
+    ///
+    /// - Parameter query: query to search
     func doSearchImages(_ query: String) {
         DataService().getPhotos(query, page: pageNumber) { (result) in
             switch result {
             case .success(let object):
-                if let photo = object as? PhotoClass {
+                if let photo = object as? PhotoNode {
                     self.updateSearchImages(photo.photos.photos)
                 }
             case .failure(let error):
@@ -52,6 +58,10 @@ extension SearchViewController {
         }
     }
     
+    
+    /// Update the download photos after the service call
+    ///
+    /// - Parameter photos: array of photo objects
     func updateSearchImages(_ photos: [Photo]) {
         self.photos.append(contentsOf: photos)
         self.collectionView.reloadData()
@@ -114,6 +124,10 @@ extension SearchViewController: UISearchBarDelegate {
         getQueryAndDoSearch(true)
     }
     
+    
+    /// Identify the search query and do the search call
+    ///
+    /// - Parameter isNewSearch: bool value to reset the collection view
     func getQueryAndDoSearch(_ isNewSearch: Bool = false) {
         guard let query = searchBar.text else {
             return

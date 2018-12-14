@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct PhotoClass: Codable {
+
+/// Photos root nodd
+struct PhotoNode: Codable {
     let photos: Photos
 }
 

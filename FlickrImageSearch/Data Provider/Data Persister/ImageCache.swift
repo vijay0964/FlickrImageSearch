@@ -8,11 +8,18 @@
 
 import UIKit
 
+
+/// ImageCache - to store the downloaded images to the cache
 struct ImageCache {
     static let sharedInstance = ImageCache()
     
     fileprivate var cache = NSCache<NSURL, UIImage>()
     
+    /// Download images for the URL
+    ///
+    /// - Parameters:
+    ///   - url: url to download
+    ///   - handler: Completion handler to send the downloaded image back
     fileprivate func getImage(by url: URL, handler: @escaping (_ image: UIImage?) -> Void) {
         
         if let image = self.cache.object(forKey: url as NSURL) {
@@ -46,10 +53,20 @@ struct ImageCache {
 }
 
 extension ImageCache {
+    
+    /// Get downloaded images by URL
+    ///
+    /// - Parameter url: url to find the image
+    /// - Returns: returns the downloaded image if found or nil
     func getImage(_ url: URL) -> UIImage? {
         return cache.object(forKey: url as NSURL)
     }
     
+    /// Download images for the URL
+    ///
+    /// - Parameters:
+    ///   - url: url to download
+    ///   - handler: Completion handler to send the downloaded image back
     func loadImage(_ url: URL, handler: @escaping (_ image: UIImage?) -> Void) {
         getImage(by: url, handler: handler)
     }
