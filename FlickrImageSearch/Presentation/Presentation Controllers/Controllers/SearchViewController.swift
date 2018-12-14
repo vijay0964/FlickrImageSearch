@@ -21,6 +21,15 @@ class SearchViewController: UICollectionViewController {
         return sb
     }()
     
+    lazy var messageLbl: UILabel = {
+        let lbl = UILabel(frame: CGRect(x: 0, y: self.view.frame.height / 2, width: self.view.frame.width, height: 50))
+        lbl.textColor = .white
+        lbl.textAlignment = .center
+        lbl.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+        lbl.isHidden = true
+        return lbl
+    }()
+    
     var photos = [Photo]()
     var pageNumber = 0
     
@@ -28,6 +37,7 @@ class SearchViewController: UICollectionViewController {
         super.viewDidLoad()
 
         navigationItem.titleView = searchBar
+        view.addSubview(messageLbl)
         navigationController?.navigationBar.barTintColor = UIColor(hex: 0x1F2024)
     }
     
@@ -38,6 +48,15 @@ class SearchViewController: UICollectionViewController {
         photos.removeAll()
         collectionView.reloadData()
     }
+    
+    
+    /// Display the message about the search happens
+    ///
+    /// - Parameter query: query string that user searched
+    func showMessageLbl(_ query: String) {
+        messageLbl.text = "Searching Images for '\(query)'"
+        messageLbl.isHidden = false
+    }
 }
 
 extension SearchViewController {
@@ -47,6 +66,10 @@ extension SearchViewController {
     /// - Parameter query: query to search
     func doSearchImages(_ query: String) {
         DataService().getPhotos(query, page: pageNumber) { (result) in
+            if self.messageLbl.isHidden == false {
+                self.messageLbl.isHidden = true
+            }
+
             switch result {
             case .success(let object):
                 if let photo = object as? PhotoNode {
@@ -77,10 +100,6 @@ extension SearchViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if indexPath.row > photos.count - 2 {
-            getQueryAndDoSearch()
-        }
         
         let photo = photos[indexPath.row]
         
@@ -135,10 +154,24 @@ extension SearchViewController: UISearchBarDelegate {
         
         if isNewSearch {
             resetCollectionView()
+            showMessageLbl(query)
         }
         
         pageNumber += 1
         
         doSearchImages(query)
+    }
+}
+
+extension SearchViewController {
+    
+    //  MARK: - UIScrollViewDelegate
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == collectionView {
+            if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height) {
+                getQueryAndDoSearch()
+            }
+        }
     }
 }
