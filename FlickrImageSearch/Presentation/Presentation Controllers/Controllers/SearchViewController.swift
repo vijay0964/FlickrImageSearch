@@ -65,7 +65,7 @@ extension SearchViewController {
     ///
     /// - Parameter query: query to search
     func doSearchImages(_ query: String) {
-        DataService().getPhotos(query, page: pageNumber) { (result) in
+        DataService(session: URLSession.shared).getPhotos(query, page: pageNumber) { (result) in
             if self.messageLbl.isHidden == false {
                 self.messageLbl.isHidden = true
             }
